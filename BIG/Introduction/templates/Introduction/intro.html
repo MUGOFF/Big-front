@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'Introduction/Intro.css' %}">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+{% endblock %}
+{% block content %}
+<form action="intro" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="introduction">
+        <p class="intro_title">국내 최초 AI모델 기반 포전거래 플랫폼</p>
+        <p class="intro_title" style="font-size:72px;color:green;">‘OOOO’</p>
+        <p class="site_description">포전매매 표준계약서 작성을 유도해 대금 미지급 등 기존 포전거래의 단점을 보완해요</p>
+        <p class="site_description">복잡한 유통구조를 줄여 생산자와 소비자 모두가 이익을 볼 수 있고,</p>
+        <p class="site_description">AI모델의 예측을 통해 다양한 농산물의 합리적인 가격을 알려드려요.</p>
+        <div class="term_box">
+            <div class="ex_img"></div>
+            <div class="desc_box">
+                <p class="sub_title">포전거래란?</p>
+                <p class="term_desc">포전거래란 일명 ‘밭떼기’로, 일종의 선물거래 개념이에요. </p>
+                <p class="term_desc">생산물을 일정한 조건으로 인수하는 계약을 맺고하는 농산물 재배를 뜻해요.</p>
+                <p class="term_desc">중간 상인의 입장에서는 미리 돈을 주고 물건을 확보하는 것이고, </p>
+                <p class="term_desc">농민의 입장에서는 미래의 불확실한 수입을 현재의 확실한 수입으로 할인할 수 있어요. </p>
+                <p class="term_desc">물론  농사가 잘 됐는데 가격이 폭등했을 때에 엄청난 수익을 올릴 수 있는 기회를 놓</p>
+            </div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" ></script>
+{% endblock %}
+    
+    

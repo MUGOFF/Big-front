@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'Introduction/guide.css' %}">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+{% endblock %}
+{% block content %}
+<form action="guide" method="post" enctype="multipart/form-data">
+    <div class="guideline">
+        <div class="content_title">
+            <p class="title_text">서비스 가이드</p>
+        </div>
+        <div class="step_logos">
+            <div class="step_box">
+                <i class="fa-solid fa-user fa-3x"></i>
+                <span class="step_text">Step1</span>
+                <span class="step_text">회원가입</span>
+                <i class="fa-solid fa-arrow-right fa-3x"></i>
+            </div>
+            <div class="step_box">
+                <i class="fa-solid fa-user fa-3x"></i>
+                <span class="step_text">Step2</span>
+                <span class="step_text">Step2</span>
+                <i class="fa-solid fa-arrow-right fa-3x"></i>
+            </div>
+            <div class="step_box">
+                <i class="fa-solid fa-user fa-3x"></i>
+                <span class="step_text">Step3</span>
+                <span class="v2_13step_text6">Step3</span>
+                <i class="fa-solid fa-arrow-right fa-3x"></i>
+            </div>
+            <div class="step_box">
+                <i class="fa-solid fa-user fa-3x"></i>
+                <span class="step_text">Step4</span>
+                <span class="step_text">Step4</span>
+                <i class="fa-solid fa-arrow-right fa-3x"></i>
+            </div> 
+            <div class="step_box">
+                <i class="fa-solid fa-user fa-3x"></i>
+                <span class="step_text">Step5</span>
+                <span class="step_text">Step5</span>
+                <i class="fa-solid fa-arrow-right fa-3x"></i>
+            </div>
+            <div class="step_box" style="float:clear">
+                <i class="fa-solid fa-user fa-3x"></i>
+                <span class="step_text">Step6</span>
+                <span class="step_text">Step6</span>
+                <i class="fa-solid fa-arrow-right fa-3x"></i>
+            </div>
+        </div class="descs">
+            <div class="step_desc"></div>
+            <div class="step_desc"></div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" ></script>
+{% endblock %}

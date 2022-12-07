@@ -1,0 +1,82 @@
+.introduction {
+  width: 1440px;
+  height: 1024px;
+  background: rgba(255,255,255,1);
+  position: static;
+  margin: auto;
+}
+/* .navbar{} */
+.intro_title {
+  width: 1440px;
+  color: rgba(0,0,0,1);
+  position: relative;
+  top: 198px;
+  font-family: Mulish;
+  font-weight: SemiBold;
+  font-size: 48px;
+  opacity: 1;
+  text-align: center;
+}
+.site_description {
+  width: 1440px;
+  color: rgba(156,156,156,1);
+  position: relative;
+  top: 250px;
+  font-family: Mulish;
+  font-weight: SemiBold;
+  font-size: 32px;
+  opacity: 1;
+  text-align: center;
+}
+.term_box {
+  width: 1440px;
+  height: 500px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: relative;
+  display: flex; 
+  top: 400px;
+  left: 57px;
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+  border-bottom-left-radius: 11px;
+  border-bottom-right-radius: 11px;
+  box-shadow: 0px 4px 40px rgba(0.5291666388511658, 0.5291666388511658, 0.5291666388511658, 0.30000001192092896);
+  text-align: center;
+}
+.ex_img {
+  width: 340px;
+  height: 340px;
+  vertical-align:middle;
+  float: left;
+  background: url("../images/v11_28.png");
+  opacity: 1;
+  position: relative;
+  top: 80px;
+  left: 50px;
+  border-radius: 50%;
+}
+
+.sub_title {
+  width: 1070px;
+  color: rgba(0,0,0,1);
+  position: static;
+  top: 20px;
+  font-family: Mulish;
+  font-weight: Bold;
+  font-size: 40px;
+  opacity: 1;
+  text-align: center;
+}
+.term_desc {
+  width: 1070px;
+  color: rgba(156,156,156,1);
+  position: static;
+  top: 148px;
+  left: 453px;
+  font-family: Mulish;
+  font-weight: SemiBold;
+  font-size: 24px;
+  opacity: 1;
+  text-align: right;
+}

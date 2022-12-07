@@ -1,0 +1,166 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  overflow: scroll;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+.navbar {
+  width: 1440px;
+  height: 100px;
+  display: flex;
+  margin: auto;
+}
+.FNB {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  position: relative;
+  top: 500px;
+  bottom: 0px;
+  background:rgba(23, 172, 120,0.6)
+}
+.navlogo {
+  width: 150px;
+  height: 100px;
+  background: url("../images/v11_28.png");
+  opacity: 1;
+  display: flex;
+  border-top-left-radius: 63px;
+  border-top-right-radius: 63px;
+  border-bottom-left-radius: 63px;
+  border-bottom-right-radius: 63px;
+  overflow: hidden;
+  background-position: center center;
+}
+.navservice {
+  width: 1090px;
+  height: 100px;
+  display: flex;
+}
+.navpersonal {
+  width: 200px;
+  left: 70px;
+  display: flex;
+  margin: auto;
+}
+input[type="text"] {
+  width: 200px;
+  font-size: 20px;
+  margin-left: 10px;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.gnb {
+  list-style: none;
+}
+.gnb>li {
+  float: left;
+  height:28px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.gnb > li > ul {
+  width:120px;
+  margin: 0px;
+  padding: 5px;
+  display:none;
+  list-style: none;
+  position: absolute;
+  background: rgba(255, 255, 255,0.8);
+  box-shadow: 2px 2px 5px rgba(1, 1, 1, 0.3);
+}
+ul > li > a{
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  text-align:center;
+} 
+.gnb > li:hover > ul {
+  display:block;
+}
+.gnb > li > ul:hover {
+  display:block;
+}
+.menu {
+  height: 45px;
+  padding-bottom: 5px;
+  color: rgb(23, 172, 120);
+  font-family: Gothic;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: left;
+}
+.searchbar {
+  top: 5px;
+  left: 237px;
+  margin-top: auto;
+  margin-bottom: auto;
+  overflow: hidden;
+}
+
+.searchtext {
+  width: 49px;
+  color: rgba(0,0,0,0.5);
+  margin: 20px;
+  font-family: Mulish;
+  font-weight: Regular;
+  font-size: 20px;
+  text-align: left;
+}
+
+.unread_alarm {
+  width: 10px;
+  height: 10px;
+  background: rgba(230,46,123,1);
+  position: relative;
+  left: -7px;
+  border-radius: 50%;
+  visibility: visible;
+}
+.fa-bell {
+  width: 32px;
+  height: 32px;
+  position: relative;
+}
+/* mypage */
+.fa-user {
+  width: 28px;
+  height: 26px;
+  opacity: 1;
+  position: relative;
+}
+.login {
+  width: 120px;
+  height: 40px;
+  background: rgba(46,73,89,1);
+  position: relative;
+  left: 30px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+
+  color: rgba(255,255,255,1);
+  font-family: Mulish;
+  font-weight: ExtraBold;
+  font-size: 20px;
+  text-align: center;
+}
+.login_out {
+  color: rgba(255,255,255,1);
+  margin-top: 6px;
+  margin-left: auto;
+  font-family: Mulish;
+  font-weight: ExtraBold;
+  font-size: 20px;
+  text-align: center;
+}

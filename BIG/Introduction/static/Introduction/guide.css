@@ -1,0 +1,48 @@
+body {
+    font-size: 14px;
+  }
+.guideline {
+  width: 1440px;
+  position: static;
+  margin: auto;
+}
+.content_title {
+  width: 1440px;
+  height: 200px;
+  margin: auto;
+  position: static;
+  border-bottom: 1px solid black;
+}
+.title_text {
+  color: rgba(0,0,0,1);
+  margin: auto;
+  font-family: Mulish;
+  font-weight: Bold;
+  font-size: 56px;
+  text-align: center;
+}
+.step_logos {
+  position: static;
+  width: 1440px;
+  margin: auto;
+  display: flex;
+}
+.step_box {
+  float: left;
+  height: 300px;
+  background: white;
+  display: block;
+}
+.step_text {
+  color: rgba(0,0,0,1);
+  font-family: Roboto;
+  font-weight: Medium;
+  font-size: 20px;
+  text-align: center;
+}
+.step_desc {
+  width: 1280px;
+  height: 300px;
+  margin: auto;
+  border-bottom: 1px solid rgba(220,220,220,0.8);
+}

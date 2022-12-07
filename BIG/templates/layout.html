@@ -1,0 +1,56 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" />
+    {% block extra_head %}
+    {% endblock %}
+    <script src="https://kit.fontawesome.com/e98ed846e5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navlogo"></div>
+        <div class="navservice">
+            <ul class="gnb">
+                <li><span class="menu" onclick="location.href={% url 'Introduction:site_intro' %}">소개</span>
+                    <ul class="sub_menu">
+                        <li><a href="{% url 'Introduction:site_intro' %}">서비스 소개</a></li>
+                        <li><a href="{% url 'Introduction:site_guide' %}">서비스 안내</a></li>
+                    </ul>
+                </li>
+                <li><span class="menu">포전거래</span></li>
+                <li><span class="menu">농산물가격</span></li>
+                <li><span class="menu">게시판</span></li>
+            </ul>
+            <div class="searchbar">
+                <span class="searchtext">Search...</span>
+                <input class="search" type="text">
+                <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+                <!--<font-awesome-icon icon="fa-solid fa-magnifying-glass" /> vue-->
+            </div>
+        </div>
+        <div class="navpersonal">
+            <i class="fa-solid fa-bell fa-2x"></i>
+            <div class="unread_alarm"></div>
+            <i class="fa-solid fa-user fa-2x"></i>
+            <button type="button" class="login">로그아웃</button>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {% block content %}
+                {% endblock %}
+            </div>            
+        </div>
+    </div>
+    <div class="FNB">
+        <div class="container">
+            <p class="text-muted">
+                Copyright © 2020 KINO Data Systems All Right Reserved
+            </p>
+        </div>
+    </div>
+</body>
+</html>
