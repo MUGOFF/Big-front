@@ -20,4 +20,5 @@ app_name = 'Introduction'
 urlpatterns = [
     path('Intro', views.intro, name='site_intro'),
     path('Guide', views.guide, name='site_guide'),
+    path( '*', RedirectView.as_view(url='Intro', permanent=False), name='index')
 ]

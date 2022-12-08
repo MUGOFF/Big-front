@@ -23,21 +23,43 @@ body {
 }
 .step_logos {
   position: static;
-  width: 1440px;
+  width: 1080px;
+  height: 120px;
   margin: auto;
   display: flex;
 }
 .step_box {
   float: left;
-  height: 300px;
+  height: 80px;
   background: white;
+  margin: auto;
+  margin-top: 10px;
   display: block;
+}
+div > .step_text {
+  font-size: 20px;
+  margin-top: 0;
 }
 .step_text {
   color: rgba(0,0,0,1);
   font-family: Roboto;
   font-weight: Medium;
-  font-size: 20px;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 7px;
+}
+.step_circle > i{
+  margin-top: 4px;
+}
+.fa-arrow-right{
+  margin-top: 30px;
+}
+.step_circle{
+  width: 80px;
+  height: 60px;
+  background: rgba(217,217,217,1);
+  border-radius: 50%;
+  margin-top: 5px;
   text-align: center;
 }
 .step_desc {
@@ -45,4 +67,21 @@ body {
   height: 300px;
   margin: auto;
   border-bottom: 1px solid rgba(220,220,220,0.8);
+  display:flex;
+}
+.descs {
+  border-top-style: double;
+}
+.step_desc > .icon_placement{
+  width: 150px;
+  float: left;
+}
+.icon_placement>i{
+  margin-top: 70px;
+  margin-left: 30px;
+}
+.desc_zone {
+  width:1100px;
+  margin-left: 20px;
+  margin-right: 10px;
 }
