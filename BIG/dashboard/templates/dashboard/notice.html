@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'dashboard/notice.css' %}">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+{% endblock %}
+{% block content %}
+    <div>
+        <h1 class="title">공지사항</h1>
+    </div>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="content">
+            <table>
+                <tbody>
+                <tr class = "table-header">
+                    <th class="header" style = "width: 200px;">번호</th>
+                    <th class="header" style = "width: 950px;">제목 </th>
+                    <th class="header" style = "width: 100px;">날짜</th>
+                </tr>
+                {% for post in post_all %}
+                <tr class="post_one">
+                    <td class="post-info first"></td>
+                    <td>
+                        <a class="post-info" href="{% url 'dashboard:detail' post.id %}">{{post.title}}</a>
+                    </td>
+                    <td class="post-info"></td>
+                <tr>
+                {% empty %}
+                    <tr class="post_one">    
+                        <td> 글이 존재하지 않습니다. </td>
+                    <tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <input type="text" name="keyword">
+            <input type="submit" value="검색" >
+        </div>            
+    </form>
+    <a href="{% url 'dashboard:create_notice'  %}"> [새글 쓰기] </a>
+    <script type="text/javascript" >
+        var post_num 
+        console.log({{post_count}})
+        var loop_num = document.getElementsByClassName("first")
+        console.log({{loop_num}})
+        console.log(post_num)
+        post_num  = {{post_count|safe}} - {{forloop.counter0|safe }}
+        console.log(post_num) 
+    </script>
+{% endblock  %}

@@ -17,9 +17,12 @@ from . import views
 from django.views.generic.base import RedirectView
 from django.urls import path
 
-app_name = 'Introduction'
+app_name = 'dashboard'
 urlpatterns = [
-    path('Intro/', views.intro, name='site_intro'),
-    path('Guide/', views.guide, name='site_guide'),
-    path('', RedirectView.as_view(url='Intro/', permanent=False), name='index'),
+    path('', RedirectView.as_view(url='notice/', permanent=False), name='index'),
+    path('notice/', views.notice, name='site_Notice'),
+    path('QnA/', views.qna, name='site_QnA'),
+    path('<int:id>/', views.detail, name='detail'),
+    path('notice/new/', views.write_notice, name='create_notice'),
+    path('QnA/new/', views.write_question, name='create_question'),
 ]

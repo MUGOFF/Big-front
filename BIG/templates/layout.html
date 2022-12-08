@@ -21,7 +21,12 @@
                 </li>
                 <li><span class="menu">포전거래</span></li>
                 <li><span class="menu">농산물가격</span></li>
-                <li><span class="menu">게시판</span></li>
+                <li><span class="menu">게시판</span>
+                    <ul class="sub_menu">
+                        <li><a href="{% url 'dashboard:site_Notice' %}">공지사항</a></li>
+                        <li><a href="{% url 'dashboard:site_QnA' %}">문의 게시판</a></li>
+                    </ul>
+                </li>
             </ul>
             <div class="searchbar">
                 <span class="searchtext">Search...</span>

@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
-
 {% load static %}
+
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'Introduction/Intro.css' %}">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 {% endblock %}
 {% block content %}
-<form action="intro" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="introduction">
         <p class="intro_title">국내 최초 AI모델 기반 포전거래 플랫폼</p>
