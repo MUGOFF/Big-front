@@ -11,41 +11,64 @@
     </div>
     <form action="" method="post">
         {% csrf_token %}
+        <div style="width:1440px;margin:auto;text-align:right;">
+            <span style="color:grey">total {{post_count}}건 {{page}}페이지</span>
+        </div>
         <div class="content">
-            <table>
+            <table style="border-collapse: collapse;">
                 <tbody>
-                <tr class = "table-header">
-                    <th class="header" style = "width: 200px;">번호</th>
-                    <th class="header" style = "width: 950px;">제목 </th>
-                    <th class="header" style = "width: 100px;">날짜</th>
-                </tr>
-                {% for post in post_all %}
-                <tr class="post_one">
-                    <td class="post-info first"></td>
-                    <td>
-                        <a class="post-info" href="{% url 'dashboard:detail' post.id %}">{{post.title}}</a>
-                    </td>
-                    <td class="post-info"></td>
-                <tr>
-                {% empty %}
-                    <tr class="post_one">    
-                        <td> 글이 존재하지 않습니다. </td>
-                    <tr>
-                {% endfor %}
+                    <tr class = "table-header">
+                        <th class="header" style = "width: 200px;">번호</th>
+                        <th class="header" style = "width: 900px;">제목 </th>
+                        <th class="header" style = "width: 200px;">날짜</th>
+                    </tr>
+                    {% for post in post_all %}
+                    <tr class="post_one">
+                        <td class="post-info" id = "postnum-{{forloop.counter0}}"></td>
+                        <td style="text-align: center;">
+                            <a class="post-info" href="{% url 'dashboard:notice_view' post.id %}">{{post.title}}</a>
+                        </td>
+                        <td class="post-info">{{post.written_date|date:"Y-m-d"}}</td>
+                        <tr>
+                            {% empty %}
+                            <tr class="post_one">
+                                <td></td>    
+                                <td style="text-align:center;"> 글이 존재하지 않습니다. </td>
+                                <td></td>    
+                                <tr>
+                    {% endfor %}
                 </tbody>
             </table>
-            <input type="text" name="keyword">
-            <input type="submit" value="검색" >
+        </div>
+        <div class="page_links">
+            <center><ul class="pages">
+                {% for num in page_num %}
+                <li>
+                    <a href="{% url 'dashboard:site_Notice_page' page=num %}" class="page_link">{{num}}</a>
+                </li>
+                {% empty %}
+                <li>
+                    <a href="{% url 'dashboard:site_Notice' %}" class="page_link">1</a>
+                </li>
+                {% endfor %}
+            <ul>
         </div>            
+        <fieldset style="width: 1440px;height:60px;text-align:right;margin:0 auto;">
+            <input type="text" name="keyword" style="height:40px;">
+            <button type="submit" class="fa-solid fa-magnifying-glass fa-2x" style="border:none;height:40px;background-color:white;"></button>
+        </fieldset>
     </form>
-    <a href="{% url 'dashboard:create_notice'  %}"> [새글 쓰기] </a>
     <script type="text/javascript" >
-        var post_num 
-        console.log({{post_count}})
-        var loop_num = document.getElementsByClassName("first")
-        console.log({{loop_num}})
-        console.log(post_num)
-        post_num  = {{post_count|safe}} - {{forloop.counter0|safe }}
-        console.log(post_num) 
+        function post_count(num){
+            var pages = {{page}}
+            if (isNaN(pages)){
+                pages = 1
+            }
+            var loop_num = {{post_count}}-num-10*(pages-1)
+            document.getElementById("postnum-"+num).innerHTML = loop_num
+        };
+        for (let step = 0; step < {{post_count}}; step++) {
+            post_count(step);
+        }
     </script>
 {% endblock  %}

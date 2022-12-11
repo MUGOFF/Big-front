@@ -1,4 +1,88 @@
 {% extends 'layout.html' %}
+{% load static %}
 
-{% block content %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'dashboard/qna.css' %}">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 {% endblock %}
+{% block content %}
+<div>
+    <h1 class="title">질문 게시판</h1>
+</div>
+<form action="" method="post">
+    {% csrf_token %}
+    <div style="width:1440px;margin:auto;text-align:right;">
+        <span style="color:grey">total {{post_count}}건 {{page}}페이지</span>
+    </div>
+    <div class="content">
+        <div style="text-align: center;width: 1440px;background-color:navy;margin-top:10px;">
+            <a href="{% url 'dashboard:create_question'  %}" style="color:white;text-decoration: none;font-size:32px;font-weight:bold;"> 질문 작성 </a>
+        </div>
+        <table class="qna_table">
+            <tbody>
+                <tr class = "table-header">
+                    <th class="header" style = "width: 100px;">번호</th>
+                    <th class="header" style = "width: 900px;">제목 </th>
+                    <th class="header" style = "width: 200px;">작성자 </th>
+                    <th class="header" style = "width: 200px;">날짜</th>
+                    <th class="header" style = "width: 100px;">상태</th>
+                </tr>
+                {% for post in post_all %}
+                <tr class="post_one">
+                    <td class="post-info" id = "postnum-{{forloop.counter0}}"></td>
+                    <td style="text-align: center;">
+                        <a class="post-info" href="{% url 'dashboard:question_viw' post.id %}">{{post.title}}</a>
+                    </td>
+                    <td class="post-info">{{post.writer}}</td>
+                    <td class="post-info">{{post.written_date|date:"Y-m-d"}}</td>
+                    <td class="post-info"> 
+                        <div class="solve-{{post.solvebool}}">???</div>
+                    </td>
+                    <tr>
+                        {% empty %}
+                        <tr class="post_one">
+                            <td></td>    
+                            <td style="text-align:center;"> 글이 존재하지 않습니다. </td>
+                            <td></td>    
+                        <tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="page_links">
+        <center><ul class="pages">
+            {% for num in page_num %}
+            <li>
+                <a href="{% url 'dashboard:site_QnA_page' page=num %}" class="page_link">{{num}}</a>
+            </li>
+            {% empty %}
+            <li>
+                <a href="{% url 'dashboard:site_QnA' %}" class="page_link">1</a>
+            </li>
+            {% endfor %}
+        <ul>
+    </div>            
+    <fieldset style="width: 1440px;height:60px;text-align:right;margin:0 auto;">
+        <input type="text" name="keyword" style="height:40px;">
+        <button type="submit" class="fa-solid fa-magnifying-glass fa-2x" style="border:none;height:40px;background-color:white;"></button>
+    </fieldset>
+</form>
+<script type="text/javascript" >
+    function post_count(num){
+        var pages = {{page}}
+            if (isNaN(pages)){
+                pages = 1
+            }
+        var loop_num = {{post_count}}-num-10*(pages-1)
+        document.getElementById("postnum-"+num).innerHTML = loop_num
+    };
+    function solvecomp() {
+        $('.solve-True').html("답변완료")
+        $('.solve-False').html("답변대기")
+    };
+    for (let step = 0; step < {{post_count}}; step++) {
+        post_count(step);
+    };
+    solvecomp();
+</script>
+{% endblock  %}

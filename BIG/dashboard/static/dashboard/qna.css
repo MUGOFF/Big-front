@@ -13,12 +13,13 @@
     color: rgba(0,0,0,1);
     font-size: 40px;
 }
-table {
+.qna_table {
     width: 1440px;
     border-left:none;
     border-right:none;
     border-bottom: 5px solid navy;
     background-color: rgba(255,255,255,0.6);
+    border-collapse: collapse;
 }
 .table-header {
     height: 40px;
@@ -60,4 +61,17 @@ td > a {
     height: 30px;
     text-align: center;
     margin-bottom: 20px;
+}
+.solve-False {
+    text-align: center;
+    font-size: 16px;
+    background-color: white;
+    border: 3px solid rgba(10,50,10,1)
+}
+.solve-True {
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(10,50,10,1);
+    border: 3px solid rgba(10,50,10,1)
 }

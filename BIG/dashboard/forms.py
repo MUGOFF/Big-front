@@ -1,5 +1,5 @@
 from django import forms
-from .models import Notice, Qna
+from .models import *
 
 # class PostForm(forms.Form):
 #     title = forms.CharField(label='제목')
@@ -12,5 +12,5 @@ class NoticeModelForm(forms.ModelForm):
 
 class QnAModelForm(forms.ModelForm):
     class Meta:
-        model = Qna
-        fields = ['title', 'content']
+        model = Question
+        fields = ['title', 'writer', 'content']

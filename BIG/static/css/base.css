@@ -36,15 +36,16 @@ body {
   overflow: hidden;
 }
 .navservice {
-  width: 1090px;
+  width: 1030px;
   height: 100px;
   display: flex;
 }
 .navpersonal {
-  width: 200px;
+  width: 280px;
   left: 70px;
   display: flex;
   margin: auto;
+  margin-left:10px;
 }
 input[type="text"] {
   width: 200px;
@@ -76,7 +77,7 @@ input[type="text"] {
   background: rgba(255, 255, 255,0.8);
   box-shadow: 2px 2px 5px rgba(1, 1, 1, 0.3);
 }
-ul > li > a{
+.gnb> li >ul> li > a{
   font-size: 16px;
   text-decoration: none;
   font-weight: bold;
@@ -109,7 +110,7 @@ ul > li > a{
 .searchtext {
   width: 49px;
   color: rgba(0,0,0,0.5);
-  margin: 20px;
+  margin-left: 20px;
   font-family: Mulish;
   font-weight: Regular;
   font-size: 20px;
@@ -120,8 +121,8 @@ ul > li > a{
   width: 10px;
   height: 10px;
   background: rgba(230,46,123,1);
+  left: -8px;
   position: relative;
-  left: -7px;
   border-radius: 50%;
   visibility: visible;
 }
@@ -134,21 +135,17 @@ ul > li > a{
 .fa-user {
   width: 28px;
   height: 26px;
-  opacity: 1;
   position: relative;
 }
 .login {
-  width: 120px;
-  height: 40px;
-  background: rgba(46,73,89,1);
+  width: 180px;
+  height: 35px;
+  left: 10px;
+  background: rgb(144, 230, 144);
   position: relative;
-  left: 30px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border:none;
 
-  color: rgba(255,255,255,1);
+  color: black;
   font-family: Mulish;
   font-weight: ExtraBold;
   font-size: 20px;
