@@ -52,10 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-<<<<<<< Updated upstream
-=======
     # 'webpack_loader',
->>>>>>> Stashed changes
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -69,18 +66,11 @@ INSTALLED_APPS = [
     'business',
 ]
 
-<<<<<<< Updated upstream
-CORS_ALLOWED_ORIGIN =[
-    "http://localhost:8080"
-]
-=======
->>>>>>> Stashed changes
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
