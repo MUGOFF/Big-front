@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+<<<<<<< Updated upstream
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,8 +25,27 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')),
 ]
 
+=======
+from . import views
+>>>>>>> Stashed changes
 from django.conf.urls.static import static
 from django.conf import settings
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/v1/', include('djoser.urls'),name='api'),
+    path('api/v1/', include('djoser.urls.authtoken')),
+    path('api/v1/', include('dashboard.urls')),
+    path('api/v1/', include('category.urls')),
+    path('api/v1/', include('business.urls')),
+    path('', include('account.urls')),
+    path('', views.HomeView.as_view(), name='home'),
+    path('Introduction/', include('Introduction.urls')),
+    path('aimodel/', include('aimodel.urls')),
+    # path('category/', include('category.urls')),
+    # path('dashboard/', include('dashboard.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -19,13 +19,18 @@ from django.urls import path
 
 app_name = 'dashboard'
 urlpatterns = [
-    path('', RedirectView.as_view(url='notice/', permanent=False), name='index'),
-    path('notice/', views.notice, name='site_Notice'),
-    path('notice/page=<int:page>/', views.notice, name='site_Notice_page'),
-    path('QnA/', views.qna, name='site_QnA'),
-    path('QnA/page=<int:page>/', views.qna, name='site_QnA_page'),
-    path('notice/<int:id>/', views.notice_view, name='notice_view'),
-    path('QnA/<int:id>/', views.question_viw, name='question_viw'),
-    # path('notice/new/', views.write_notice, name='create_notice'),
-    path('QnA/new/', views.write_question, name='create_question'),
+    # path('', RedirectView.as_view(url='notice/', permanent=False), name='index'),
+    path('notices/', views.NoticeList.as_view()),
+    path('notices_detail/', views.NoticeDetail.as_view()),
+    path('questions/', views.QnaList.as_view()),
+    path('qnas_detail/', views.QnaDetail.as_view()),
+    path('answer_comment/', views.AnswerView.as_view()),
+    # path('notice/', views.notice, name='site_Notice'),
+    # path('notice/page=<int:page>/', views.notice, name='site_Notice_page'),
+    # path('QnA/', views.qna, name='site_QnA'),
+    # path('QnA/page=<int:page>/', views.qna, name='site_QnA_page'),
+    # path('notice/<int:id>/', views.notice_view, name='notice_view'),
+    # path('QnA/<int:id>/', views.question_viw, name='question_viw'),
+    # # path('notice/new/', views.write_notice, name='create_notice'),
+    # path('QnA/new/', views.write_question, name='create_question'),
 ]

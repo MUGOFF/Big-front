@@ -1,4 +1,5 @@
 {% load static %}
+{% comment %} {% load render_bundle from webpack_loader %} {% endcomment %}
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,11 +7,15 @@
     <link href="{% static 'css/base.css' %}" rel="stylesheet" />
     {% block extra_head %}
     {% endblock %}
+    {% comment %} {% render_bundle 'app' 'css' %} {% endcomment %}
     <script src="https://kit.fontawesome.com/e98ed846e5.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    {% comment %} {% render_bundle 'app' 'js' %} {% endcomment %}
     <nav class="navbar">
-        <div class="navlogo"></div>
+        <div class="navlogo">
+            <a href="{% url BIG:api}">API 루트</a>
+        </div>
         <div class="navservice">
             <ul class="gnb">
                 <li><span class="menu" onclick="location.href={% url 'Introduction:site_intro' %}">소개</span>

@@ -27,7 +27,21 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES' : (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT.PERMISSIONS_CLASSES' : (
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAdminUser',
+    ),
+    "DEFAULT.PARSER_CLASSES": (
+        "rest_framework.parsers.JSONParser",
+        "rest_framework.parsers.FormParser",
+        "rest_framework.parsers.MultiPartParser",
+        "rest_framework.parsers.FileUploadParser",
+    ),
+}
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +52,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+<<<<<<< Updated upstream
+=======
+    # 'webpack_loader',
+>>>>>>> Stashed changes
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -46,13 +64,20 @@ INSTALLED_APPS = [
     'Introduction',
     'dashboard',
     'account',
+    'category',
+    'aimodel',
+    'business',
 ]
 
+<<<<<<< Updated upstream
 CORS_ALLOWED_ORIGIN =[
     "http://localhost:8080"
 ]
+=======
+>>>>>>> Stashed changes
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
@@ -62,6 +87,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# CORS_ORIGIN_ALLOW_ALL =True,
+# CORS_ALLOW_CREDENTIALS = True,
 
 ROOT_URLCONF = 'BIG.urls'
 
@@ -81,6 +109,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'BIG.wsgi.application'
 
 
@@ -88,10 +117,19 @@ WSGI_APPLICATION = 'BIG.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # } #dblite
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bigproject_db',
+        'USER': 'root',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '3306'
+    } #sql
+    
 }
 
 
@@ -128,15 +166,64 @@ USE_L10N = True
 USE_TZ = True
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'static'),
+    # os.path.join(BASE_DIR, 'dist')
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# WEBPACK_LOADER = {
+#   'DEFAULT': {
+#     'CACHE': not DEBUG,
+#     'STATS_FILE': os.path.join(BASE_DIR, 'big_vue/webpack-stats.json'),
+#     'POLL_INTERVAL': 0.1,
+#     'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
+#   }
+# }
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:8080",
+    "http://localhost:8081",
+]
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+)
+
+CORS_ALLOW_HEADERS = (
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'access-control-request-method',
+    'access-control-request-headers',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+)
+
+CSRF_COOKIE_NAME = 'XSRF-TOKEN'
+CSRF_HEADER_NAME = 'X-XSRF-TOKEN'
+
+# DJOSER = {
+#     'LOGIN_FIELD' : 'email',
+#     "PASSWORD_RESET_CONFIRM_URL": "reset_password/{uid}/{token}"
+#     # 'SEND_CONFIRMATION_EMIL' :True,
+# }
